@@ -145,11 +145,13 @@ public class CourseController extends JPanel implements Observer, ChangeListener
 
 		CourseController controller = new CourseController(data);
 		BarChartObserver bar = new BarChartObserver(data);
-
+		PieChartObserver pie = new PieChartObserver(data);
 		JScrollPane scrollPane = new JScrollPane(bar,
 				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-
+		JScrollPane scrollPane2 = new JScrollPane(pie,
+				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);	
 		JFrame frame = new JFrame("Observer Pattern");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new GridBagLayout());
@@ -167,6 +169,11 @@ public class CourseController extends JPanel implements Observer, ChangeListener
 		constraints.gridx = 1;
 		constraints.gridy = 0;
 		frame.getContentPane().add(scrollPane, constraints);
+		constraints.weightx = 0.5;
+		constraints.weighty = 1;
+		constraints.gridx = 1;
+		constraints.gridy = 1;
+		frame.getContentPane().add(scrollPane2, constraints);
 		frame.pack();
 		frame.setVisible(true);
 	}
