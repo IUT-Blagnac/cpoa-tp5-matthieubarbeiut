@@ -14,6 +14,15 @@ repositories {
     }
 }
 
+jar {
+    baseName = 'Charts'
+   manifest {
+       attributes(
+           'Main-Class': 'main.java.observer.pattern.CourseController'
+       )
+   } 
+}
+
 dependencies {
     implementation 'io.github.handofgod94:jacoco-cov-badge-maven-plugin:1.1.0'
     runtimeOnly 'org.junit.jupiter:junit-jupiter-api:5.6.0'
@@ -22,7 +31,7 @@ dependencies {
 
 group = 'com.iutblagnac'
 version = '1.0'
-description = 'pizzeria'
+description = 'Charts'
 sourceCompatibility = '1.8'
 
 publishing {
