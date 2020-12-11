@@ -3,6 +3,7 @@ package observer.pattern;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.JPanel;
@@ -52,6 +53,18 @@ public class PieChartObserver extends ChartObserver {
 				startAngle += ratio;
 			}
 		}
+	}
+
+	@Override
+	public void update(Object o) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<ObserverType> getTypes() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/**

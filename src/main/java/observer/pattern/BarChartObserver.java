@@ -3,6 +3,7 @@ package observer.pattern;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.JPanel;
@@ -16,6 +17,9 @@ import observer.LayoutConstants;
  */
 @SuppressWarnings("serial")
 public class BarChartObserver extends ChartObserver {
+	
+	ArrayList<ObserverType> Types = new ArrayList<>();
+	
 	/**
 	 * Creates a BarChartObserver object
 	 * 
@@ -54,5 +58,41 @@ public class BarChartObserver extends ChartObserver {
 							* LayoutConstants.barWidth, LayoutConstants.yOffset
 							+ LayoutConstants.graphHeight + 20);
 		}
+	}
+
+	/**
+	 * Informs this observer that the observed CourseData object has changed
+	 *
+	 * @param o the observed CourseData object that has changed
+	 */
+	public void update(Object o) {
+		CourseRecord record = (CourseRecord) o;
+
+		boolean doContain = false;
+		for (CourseRecord courseRecord : CourseData)
+			if (courseRecord.getName().equals(record.getName())){
+				courseRecord.setNumOfStudents(record.getNumOfStudents());
+				doContain = true;
+			}
+
+		if (!doContain)
+			CourseData.add(record);
+
+		this.setPreferredSize(new Dimension(2 * LayoutConstants.xOffset
+				+ (LayoutConstants.barSpacing + LayoutConstants.barWidth)
+				* this.CourseData.size(), LayoutConstants.graphHeight + 2
+				* LayoutConstants.yOffset));
+
+		this.revalidate();
+		this.repaint();
+	}
+	
+
+
+
+	@Override
+	public ArrayList<ObserverType> getTypes() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

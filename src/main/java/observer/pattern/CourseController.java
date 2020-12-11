@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import javax.swing.JButton;
@@ -183,4 +184,16 @@ public class CourseController extends JPanel implements Observer, ChangeListener
 	private Vector<JSlider> sliders;
 
 	private JPanel coursePanel;
+
+	@Override
+	public void update(Object o) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<ObserverType> getTypes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
